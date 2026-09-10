@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>I AM STRONGER</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+        <link rel="icon" type="image/png" href="favicon.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #8ff58f;
+            --green-light: #d9ffd9;
+            --green-dark: #183d1d;
+            --text-soft: #b9cbb9;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Poppins", sans-serif;
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px 18px;
+
+            overflow-x: hidden;
+
+            background:
+                radial-gradient(circle at 10% 15%,
+                    rgba(73, 180, 82, 0.25),
+                    transparent 30%),
+                radial-gradient(circle at 90% 85%,
+                    rgba(38, 145, 58, 0.20),
+                    transparent 32%),
+                radial-gradient(circle at 50% 50%,
+                    rgba(28, 95, 38, 0.10),
+                    transparent 50%),
+                linear-gradient(135deg,
+                    #020702 0%,
+                    #081208 45%,
+                    #030603 100%);
+        }
+
+
+        /* =========================
+           AMBIENT BACKGROUND GLOW
+        ========================= */
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+
+            width: 320px;
+            height: 320px;
+
+            border-radius: 50%;
+
+            filter: blur(100px);
+
+            pointer-events: none;
+
+            z-index: 0;
+
+            opacity: .28;
+
+            animation: floatGlow 9s ease-in-out infinite alternate;
+        }
+
+        body::before {
+            background: #55d765;
+            top: -130px;
+            left: -100px;
+        }
+
+        body::after {
+            background: #1f8736;
+            bottom: -140px;
+            right: -100px;
+
+            animation-delay: 2s;
+        }
+
+        @keyframes floatGlow {
+            from {
+                transform: translate(0, 0) scale(1);
+            }
+
+            to {
+                transform: translate(40px, 25px) scale(1.18);
+            }
+        }
+
+
+        /* =========================
+           BACKGROUND QUOTES
+        ========================= */
+
+        .background-quote {
+            position: fixed;
+
+            font-weight: 800;
+            letter-spacing: 8px;
+
+            white-space: nowrap;
+
+            user-select: none;
+            pointer-events: none;
+
+            color: rgba(155, 255, 160, 0.035);
+
+            z-index: 0;
+
+            text-transform: uppercase;
+        }
+
+        .quote-one {
+            top: 7%;
+            left: -2%;
+
+            font-size: clamp(65px, 11vw, 155px);
+
+            transform: rotate(-8deg);
+        }
+
+        .quote-two {
+            top: 22%;
+            right: -5%;
+
+            font-size: clamp(28px, 5vw, 65px);
+
+            transform: rotate(8deg);
+
+            color: rgba(120, 240, 130, 0.04);
+        }
+
+        .quote-three {
+            bottom: 20%;
+            left: -4%;
+
+            font-size: clamp(30px, 5vw, 70px);
+
+            transform: rotate(7deg);
+
+            color: rgba(130, 245, 140, 0.032);
+        }
+
+        .quote-four {
+            bottom: 4%;
+            right: -3%;
+
+            font-size: clamp(50px, 8vw, 105px);
+
+            transform: rotate(-8deg);
+
+            color: rgba(110, 230, 120, 0.035);
+        }
+
+        .quote-five {
+            top: 68%;
+            right: 18%;
+
+            font-size: clamp(20px, 3vw, 40px);
+
+            transform: rotate(-5deg);
+
+            color: rgba(155, 255, 160, 0.025);
+        }
+
+
+        /* =========================
+           MAIN CARD
+        ========================= */
+
+        .container {
+            position: relative;
+            z-index: 2;
+
+            width: min(1080px, 100%);
+
+            padding: clamp(22px, 4vw, 42px);
+
+            text-align: center;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(145deg,
+                    rgba(20, 43, 23, 0.78),
+                    rgba(5, 13, 7, 0.72));
+
+            border: 1px solid rgba(157, 255, 162, 0.16);
+
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+
+            box-shadow:
+                0 35px 100px rgba(0, 0, 0, 0.72),
+                0 0 70px rgba(66, 180, 76, 0.08),
+                inset 0 1px 1px rgba(255, 255, 255, 0.08);
+
+            overflow: hidden;
+        }
+
+
+        /* CARD LIGHT */
+
+        .container::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                radial-gradient(circle at 50% -20%,
+                    rgba(134, 255, 143, 0.13),
+                    transparent 38%);
+
+            pointer-events: none;
+        }
+
+
+        /* TOP LINE */
+
+        .container::after {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 12%;
+            right: 12%;
+
+            height: 1px;
+
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(155, 255, 160, .55),
+                    transparent);
+
+            box-shadow: 0 0 18px rgba(120, 255, 130, .35);
+        }
+
+
+        /* =========================
+           TAG
+        ========================= */
+
+        .tag {
+            position: relative;
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 8px 19px;
+
+            margin-bottom: 18px;
+
+            border-radius: 50px;
+
+            background: rgba(119, 235, 125, 0.08);
+
+            border: 1px solid rgba(148, 255, 155, 0.20);
+
+            color: #bdeabd;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            letter-spacing: 3px;
+
+            box-shadow:
+                0 0 25px rgba(87, 210, 92, 0.08),
+                inset 0 0 15px rgba(120, 240, 125, 0.03);
+        }
+
+
+        /* =========================
+           HEADING
+        ========================= */
+
+        h1 {
+            position: relative;
+
+            font-size: clamp(44px, 8vw, 82px);
+
+            line-height: 1;
+
+            font-weight: 800;
+
+            letter-spacing: clamp(2px, .6vw, 6px);
+
+            margin-bottom: 13px;
+
+            background:
+                linear-gradient(100deg,
+                    #ffffff 10%,
+                    #b9f5ba 45%,
+                    #ffffff 70%,
+                    #8de891 100%);
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+            filter:
+                drop-shadow(0 0 18px rgba(130, 255, 140, .18));
+        }
+
+
+        .subtitle {
+            position: relative;
+
+            color: var(--text-soft);
+
+            font-size: clamp(13px, 2vw, 16px);
+
+            font-weight: 400;
+
+            letter-spacing: 1.2px;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           VIDEO AREA
+        ========================= */
+
+        .video-wrapper {
+            position: relative;
+
+            padding: 1px;
+
+            border-radius: 23px;
+
+            background:
+                linear-gradient(135deg,
+                    rgba(160, 255, 165, .35),
+                    rgba(255, 255, 255, .04) 35%,
+                    rgba(255, 255, 255, .02) 65%,
+                    rgba(90, 230, 100, .25));
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, .7),
+                0 0 45px rgba(70, 200, 80, .10);
+        }
+
+
+        .video-box {
+            position: relative;
+
+            width: 100%;
+
+            overflow: hidden;
+
+            border-radius: 22px;
+
+            background:
+                radial-gradient(ellipse at center,
+                    #173d1b,
+                    #061006 70%,
+                    #020402);
+        }
+
+
+        /* GREEN ATMOSPHERE BEHIND VIDEO */
+
+        .video-box::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                radial-gradient(ellipse at center,
+                    rgba(105, 235, 110, .16),
+                    transparent 55%);
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+
+        video {
+            position: relative;
+
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            max-height: 650px;
+
+            object-fit: contain;
+
+            background: transparent;
+
+            z-index: 1;
+        }
+
+
+        /* VIDEO INNER GLOW */
+
+        .video-box::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            border-radius: 22px;
+
+            pointer-events: none;
+
+            z-index: 2;
+
+            box-shadow:
+                inset 0 0 35px rgba(140, 255, 145, .12),
+                inset 0 0 90px rgba(50, 150, 60, .12);
+        }
+
+
+        /* =========================
+           VIDEO LABEL
+        ========================= */
+
+        .video-label {
+            position: absolute;
+
+            top: 15px;
+            left: 15px;
+
+            z-index: 4;
+
+            padding: 6px 12px;
+
+            border-radius: 30px;
+
+            background: rgba(0, 0, 0, .48);
+
+            border: 1px solid rgba(170, 255, 175, .15);
+
+            backdrop-filter: blur(8px);
+
+            color: #c9f8ca;
+
+            font-size: 10px;
+
+            font-weight: 600;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================
+           LYRICS
+        ========================= */
+
+        .lyrics {
+            position: relative;
+
+            margin-top: 27px;
+
+            padding: 22px 25px;
+
+            border-radius: 18px;
+
+            text-align: left;
+
+            background:
+                linear-gradient(135deg,
+                    rgba(120, 230, 125, .09),
+                    rgba(255, 255, 255, .025));
+
+            border: 1px solid rgba(155, 255, 160, .10);
+
+            border-left: 4px solid #8be891;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, .25),
+                inset 0 1px rgba(255, 255, 255, .04);
+        }
+
+
+        .lyrics-title {
+            color: #91ec96;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 10px;
+
+            text-transform: uppercase;
+        }
+
+
+        .lyrics span {
+            display: block;
+
+            color: #e5f6e5;
+
+            font-size: clamp(14px, 2vw, 17px);
+
+            line-height: 1.9;
+
+            font-weight: 600;
+
+            letter-spacing: 1px;
+        }
+
+
+        .lyrics span:not(:last-child) {
+            color: #c9dfc9;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer {
+            margin-top: 25px;
+
+            color: #91c996;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            opacity: .9;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 14px;
+
+                align-items: flex-start;
+
+                padding-top: 25px;
+            }
+
+            .container {
+                border-radius: 22px;
+
+                padding: 22px 16px;
+            }
+
+            h1 {
+                font-size: clamp(38px, 12vw, 58px);
+
+                letter-spacing: 2px;
+            }
+
+            .subtitle {
+                margin-bottom: 22px;
+
+                line-height: 1.6;
+            }
+
+            .video-wrapper,
+            .video-box {
+                border-radius: 17px;
+            }
+
+            .lyrics {
+                margin-top: 20px;
+
+                padding: 18px 17px;
+            }
+
+            .footer {
+                font-size: 9px;
+
+                letter-spacing: 2px;
+            }
+
+            .background-quote {
+                opacity: .65;
+
+                letter-spacing: 4px;
+            }
+
+            .quote-one {
+                font-size: 65px;
+            }
+
+            .quote-four {
+                font-size: 50px;
+            }
+
+            .quote-five {
+                display: none;
+            }
+        }
+
+
+        @media (max-width: 420px) {
+
+            body {
+                padding: 10px;
+
+                padding-top: 18px;
+            }
+
+            .container {
+                padding: 20px 13px;
+            }
+
+            .tag {
+                font-size: 10px;
+
+                letter-spacing: 2px;
+
+                padding: 7px 14px;
+            }
+
+            h1 {
+                font-size: 38px;
+            }
+
+            .subtitle {
+                font-size: 12px;
+            }
+
+            .video-label {
+                top: 10px;
+                left: 10px;
+
+                font-size: 8px;
+
+                padding: 5px 9px;
+            }
+
+            .quote-two,
+            .quote-three {
+                font-size: 25px;
+            }
+
+            .quote-one {
+                font-size: 55px;
+            }
+
+            .quote-four {
+                font-size: 42px;
+            }
+        }
+
+
+        /* =========================
+           REDUCED MOTION
+        ========================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- BACKGROUND MOTIVATIONAL QUOTES -->
+
+    <div class="background-quote quote-one">
+        RISE AGAIN
+    </div>
+
+    <div class="background-quote quote-two">
+        I AM ENOUGH
+    </div>
+
+    <div class="background-quote quote-three">
+        KEEP GOING
+    </div>
+
+    <div class="background-quote quote-four">
+        STRONGER THAN YESTERDAY
+    </div>
+
+    <div class="background-quote quote-five">
+        FALL • RISE • REPEAT
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="container">
+
+        <div class="tag">
+            ✦ &nbsp; MOTIVATION &nbsp; ✦
+        </div>
+
+
+        <h1>I AM STRONGER</h1>
+
+
+        <p class="subtitle">
+            Believe in yourself • Stay strong • Keep going
+        </p>
+
+
+        <!-- VIDEO -->
+
+        <div class="video-wrapper">
+
+            <div class="video-box">
+
+                <div class="video-label">
+                    ✦ My Strength
+                </div>
+
+                <video controls loop playsinline preload="metadata">
+
+                    <source src="video1.mp4" type="video/mp4">
+
+                    Your browser does not support the video element.
+
+                </video>
+
+            </div>
+
+        </div>
+
+
+        <!-- SONG LINES -->
+
+        <section class="lyrics">
+
+            <div class="lyrics-title">
+                My Mantra
+            </div>
+
+            <span>I AM STRONGER</span>
+            <span>I AM POWER</span>
+            <span>I KEEP MOVING FORWARD</span>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+            ✦ RISE AGAIN • RISE STRONGER ✦
+        </div>
+
+    </main>
+
+</body>
+
+</html>
